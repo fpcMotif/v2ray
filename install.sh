@@ -226,8 +226,8 @@ v2ray_dynamic_port_end() {
 
 socks_user_config() {
 	while :; do
-		read -p "$(echo -e "请输入$yellow用户名$none...(默认用户名: ${cyan}233blog$none)"): " username
-		[ -z "$username" ] && username="233blog"
+		read -p "$(echo -e "请输入$yellow用户名$none...(默认用户名: ${cyan}7colorblog$none)"): " username
+		[ -z "$username" ] && username="7colorblog"
 		case $username in
 		*[/$]* | *\&*)
 			echo
@@ -249,8 +249,8 @@ socks_user_config() {
 }
 socks_pass_config() {
 	while :; do
-		read -p "$(echo -e "请输入$yellow密码$none...(默认密码: ${cyan}233blog.com$none)"): " userpass
-		[ -z "$userpass" ] && userpass="233blog.com"
+		read -p "$(echo -e "请输入$yellow密码$none...(默认密码: ${cyan}7colorblog.com$none)"): " userpass
+		[ -z "$userpass" ] && userpass="7colorblog.com"
 		case $userpass in
 		*[/$]* | *\&*)
 			echo
@@ -306,7 +306,7 @@ tls_config() {
 	while :; do
 		echo
 		echo -e "请输入一个 $magenta正确的域名$none，一定一定一定要正确，不！能！出！错！"
-		read -p "(例如：233blog.com): " domain
+		read -p "(例如：7colorblog.com): " domain
 		[ -z "$domain" ] && error && continue
 		echo
 		echo
@@ -884,14 +884,14 @@ install_v2ray() {
 			echo
 			echo -e "$red 哎呀呀...安装失败了咯...$none"
 			echo
-			echo -e " 请确保你有完整的上传 v2ray66.com 的 V2Ray 一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
+			echo -e " 请确保你有完整的上传 7colorblog.com 的 V2Ray 一键安装脚本 & 管理脚本到当前 ${green}$(pwd) $none目录下"
 			echo
 			exit 1
 		fi
 		mkdir -p /etc/v2ray/233boy/v2ray
 		cp -rf $(pwd)/* /etc/v2ray/233boy/v2ray
 	else
-		git clone https://github.com/233boy/v2ray /etc/v2ray/233boy/v2ray
+		git clone https://github.com/lizhongnian/v2ray /etc/v2ray/233boy/v2ray
 	fi
 
 	if [[ ! -d /etc/v2ray/233boy/v2ray ]]; then
@@ -1543,10 +1543,10 @@ show_config_info() {
 	echo
 	echo -e " $yellow输入 ${cyan}v2ray${none} $yellow即可管理 V2Ray${none}"
 	echo
-	echo -e " ${yellow}V2Ray 客户端使用教程: https://v2ray66.com/post/4/$none"
+	echo -e " ${yellow}V2Ray 客户端使用教程: https://www.7colorblog.com/?id=48$none"
 	echo
 	if [[ $v2ray_transport_opt == "4" && ! $caddy ]]; then
-		echo -e " $red警告！$none$yellow请自行配置 TLS...教程: https://v2ray66.com/post/3/$none"
+		echo -e " $red警告！$none$yellow请自行配置 TLS...教程: https://www.7colorblog.com/"
 		echo
 	fi
 	echo "---------- V2Ray 配置信息 -------------"
@@ -1913,7 +1913,7 @@ uninstall() {
 			echo
 			echo "如果你觉得这个脚本有哪些地方不够好的话...请告诉我"
 			echo
-			echo "反馈问题: https://github.com/233boy/v2ray/issus"
+			echo "反馈问题: https://github.com/lizhongnian/v2ray/issus"
 			echo
 
 		elif [[ $is_uninstall_v2ray ]]; then
@@ -1957,7 +1957,7 @@ uninstall() {
 			echo
 			echo "如果你觉得这个脚本有哪些地方不够好的话...请告诉我"
 			echo
-			echo "反馈问题: https://github.com/233boy/v2ray/issus"
+			echo "反馈问题: https://github.com/lizhongnian/v2ray/issus"
 			echo
 
 		fi
@@ -2082,7 +2082,7 @@ uninstall() {
 			echo
 			echo "如果你觉得这个脚本有哪些地方不够好的话...请告诉我"
 			echo
-			echo "反馈问题: https://github.com/233boy/v2ray/issus"
+			echo "反馈问题: https://github.com/lizhongnian/v2ray/issus"
 			echo
 
 		elif [[ $is_uninstall_v2ray ]]; then
@@ -2131,7 +2131,7 @@ uninstall() {
 			echo
 			echo "如果你觉得这个脚本有哪些地方不够好的话...请告诉我"
 			echo
-			echo "反馈问题: https://github.com/233boy/v2ray/issus"
+			echo "反馈问题: https://github.com/lizhongnian/v2ray/issus"
 			echo
 
 		fi
@@ -2139,7 +2139,7 @@ uninstall() {
 		echo -e "
 		$red 大胸弟...你貌似毛有安装 V2Ray ....卸载个鸡鸡哦...$none
 
-		备注...仅支持卸载使用我 (v2ray66.com) 提供的 V2Ray 一键安装脚本
+		备注...仅支持卸载使用我 (7colorblog.com) 提供的 V2Ray 一键安装脚本
 		" && exit 1
 	fi
 
@@ -2171,11 +2171,11 @@ esac
 clear
 while :; do
 	echo
-	echo "........... V2Ray 一键安装脚本 & 管理脚本 by v2ray66.com .........."
+	echo "........... V2Ray 一键安装脚本 & 管理脚本 change by 7colorblog.com .........."
 	echo
-	echo "帮助说明: https://v2ray66.com/post/1/"
+	echo "搭建教程: https://www.7colorblog.com/?id=47"
 	echo
-	echo "搭建教程: https://v2ray66.com/post/2/"
+	echo "使用教程: https://www.7colorblog.com/?id=48"
 	echo
 	echo " 1. 安装"
 	echo
