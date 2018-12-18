@@ -8,7 +8,7 @@ cyan='\e[96m'
 none='\e[0m'
 
 # Root
-[[ $(id -u) != 0 ]] && echo -e " 哎呀……请使用 ${red}root ${none}用户运行 ${yellow}~(^_^) ${none}" && exit 1
+[[ $(id -u) != 0 ]] && echo -e " Ayh...Please use ${red}root ${none}account run ${yellow} ${none}" && exit 1
 
 cmd="apt-get"
 
@@ -19,10 +19,10 @@ if [[ $sys_bit == "i386" || $sys_bit == "i686" ]]; then
 elif [[ $sys_bit == "x86_64" ]]; then
 	v2ray_bit="64"
 else
-	echo -e " 哈哈……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}" && exit 1
+	echo -e "  ${red}this scripts${none} don't support you system。 ${yellow}(-_-) ${none}" && exit 1
 fi
 
-# 笨笨的检测方法
+# bengzhong(how to write down in german, rf to *Messy*) method
 if [[ -f /usr/bin/apt-get ]] || [[ -f /usr/bin/yum && -f /bin/systemctl ]]; then
 
 	if [[ -f /usr/bin/yum ]]; then
@@ -36,7 +36,7 @@ if [[ -f /usr/bin/apt-get ]] || [[ -f /usr/bin/yum && -f /bin/systemctl ]]; then
 
 else
 
-	echo -e " 哈哈……这个 ${red}辣鸡脚本${none} 不支持你的系统。 ${yellow}(-_-) ${none}" && exit 1
+	echo -e " This ${red}script${none} doesn't support you system. ${yellow}(-_-) ${none}" && exit 1
 
 fi
 
@@ -81,7 +81,7 @@ v2ray_config() {
 	# clear
 	echo
 	while :; do
-		echo -e "请选择 "$yellow"V2Ray"$none" 传输协议 [${magenta}1-${#transport[*]}$none]"
+		echo -e "Please choose "$yellow"V2Ray"$none" transport propotoal [${magenta}1-${#transport[*]}$none]"
 		echo
 		for ((i = 1; i <= ${#transport[*]}; i++)); do
 			Stream="${transport[$i - 1]}"
@@ -94,16 +94,16 @@ v2ray_config() {
 			fi
 		done
 		echo
-		echo "备注1: 含有 [dynamicPort] 的即启用动态端口.."
-		echo "备注2: [utp | srtp | wechat-video] 分别为 伪装成 [BT下载 | 视频通话 | 微信视频通话]"
+		echo "note1: including [dynamicPort] dynamic ports"
+		echo "note2: [utp | srtp | wechat-video] pretend to be [BT downloading | video message | wechat face chat] respectively"
 		echo
-		read -p "$(echo -e "(默认协议: ${cyan}TCP$none)"):" v2ray_transport_opt
+		read -p "$(echo -e "(default: ${cyan}TCP$none)"):" v2ray_transport_opt
 		[ -z "$v2ray_transport_opt" ] && v2ray_transport_opt=1
 		case $v2ray_transport_opt in
 		[1-9] | 1[0-7])
 			echo
 			echo
-			echo -e "$yellow V2Ray 传输协议 = $cyan${transport[$v2ray_transport_opt - 1]}$none"
+			echo -e "$yellow V2Ray Transfer Protocol = $cyan${transport[$v2ray_transport_opt - 1]}$none"
 			echo "----------------------------------------------------------------"
 			echo
 			break
@@ -120,14 +120,14 @@ v2ray_port_config() {
 	[1-3] | [5-9] | 1[0-5] | 17)
 		local random=$(shuf -i20001-65535 -n1)
 		while :; do
-			echo -e "请输入 "$yellow"V2Ray"$none" 端口 ["$magenta"1-65535"$none"]"
-			read -p "$(echo -e "(默认端口: ${cyan}${random}$none):")" v2ray_port
+			echo -e "Please enter "$yellow"V2Ray"$none" port ["$magenta"1-65535"$none"]"
+			read -p "$(echo -e "(Default port: ${cyan}${random}$none):")" v2ray_port
 			[ -z "$v2ray_port" ] && v2ray_port=$random
 			case $v2ray_port in
 			[1-9] | [1-9][0-9] | [1-9][0-9][0-9] | [1-9][0-9][0-9][0-9] | [1-5][0-9][0-9][0-9][0-9] | 6[0-4][0-9][0-9][0-9] | 65[0-4][0-9][0-9] | 655[0-3][0-5])
 				echo
 				echo
-				echo -e "$yellow V2Ray 端口 = $cyan$v2ray_port$none"
+				echo -e "$yellow V2Ray port = $cyan$v2ray_port$none"
 				echo "----------------------------------------------------------------"
 				echo
 				break
@@ -153,7 +153,7 @@ v2ray_port_config() {
 v2ray_dynamic_port_start() {
 
 	while :; do
-		echo -e "请输入 "$yellow"V2Ray 动态端口开始 "$none"范围 ["$magenta"1-65535"$none"]"
+		echo -e "Please enter "$yellow"V2Ray 动态端口开始 "$none"范围 ["$magenta"1-65535"$none"]"
 		read -p "$(echo -e "(默认开始端口: ${cyan}10000$none):")" v2ray_dynamic_port_start_input
 		[ -z $v2ray_dynamic_port_start_input ] && v2ray_dynamic_port_start_input=10000
 		case $v2ray_dynamic_port_start_input in
@@ -226,7 +226,7 @@ v2ray_dynamic_port_end() {
 
 socks_user_config() {
 	while :; do
-		read -p "$(echo -e "请输入$yellow用户名$none...(默认用户名: ${cyan}7colorblog$none)"): " username
+		read -p "$(echo -e "Please enter$yellow用户名$none...(默认用户名: ${cyan}7colorblog$none)"): " username
 		[ -z "$username" ] && username="7colorblog"
 		case $username in
 		*[/$]* | *\&*)
